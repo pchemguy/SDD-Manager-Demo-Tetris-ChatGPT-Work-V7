@@ -25,7 +25,7 @@ Use the coordinator's cursor-reset procedure: record the prior/next pass and sco
     - Record which root files existed and which were copied; verify copied bytes and preserved content.
     - Establish/reconcile `docs/dev/HANDOFF.md` as generated checkpoint metadata, outside the four-file presence/copy test. Include it with this task's completion and initialization result, push and verify; then close and verify its issue when tracking is enabled.
     - Report initialization. If some but not all of the four root files existed initially, warn with the retained/copied filenames and end the turn before document work, unless the user explicitly preapproved continuation through this checkpoint. If none or all existed, continue without an additional approval pause.
-- [ ] DOCS-002 — Prepare and accept PROJECT.
+- [x] DOCS-002 — Prepare and accept PROJECT.
     - Establish the project brief: purpose, users, outcomes, scope, non-goals and consequential constraints; identify material assumptions and unresolved decisions.
     - Present the proposal and complete its selected human-approval or scoped-preapproval checkpoint.
 - [ ] DOCS-003 — Prepare and accept ARCHITECTURE.
@@ -63,7 +63,7 @@ On interruption, recover the earliest unmet operation from documents, acceptance
 ## Active preparation record
 
 - Mode: autodoc/autoloop, explicitly requested on 2026-10-23; reporting Standard after Explicit bootstrap.
-- Current scope: pass 1, playable classic baseline. Cursor: DOCS-002, first PROJECT approval pending.
+- Current scope: pass 1, playable classic baseline. Cursor: DOCS-003; first PROJECT accepted.
 - Approval basis: first PROJECT approval remains active; later PROJECT approvals are waived, as announced before this proposal. Approval of the initial PROJECT and proposed cross-scope choices authorizes the predefined sequence and resets, with ARCHITECTURE through TASKS preapproved. No implementation is authorized.
 - Stop: after DOCS-008 in pass 6, before DOCS-009, package QC, documentation integration or implementation activation.
 - Tracking: enabled by root AGENTS.md; sdd-docs-main milestone 2 and DOCS-001–009 issues 10–18 verified before repository writes.
@@ -82,15 +82,15 @@ On interruption, recover the earliest unmet operation from documents, acceptance
 
 Later scope remains here until adopted into each current project document. Keep document-preparation controls out of PROJECT, ARCHITECTURE, DECOMPOSITION, SPEC, PLAN, layout and TASKS.
 
-### Proposed exploration decisions for initial approval
+### Accepted exploration decisions
 
-These are agent proposals, not claims of prior human agreement. The initial PROJECT approval is requested together with these choices; later material decisions within the sequence are delegated under autoloop.
+The human accepted PROJECT and these exploration choices on 2026-10-23 with the penetrator/hold correction recorded below. Later material decisions within the predefined sequence are delegated under autoloop.
 
 - Platform: desktop keyboard browser game, TypeScript with Canvas board rendering and HTML controls; no backend, account, multiplayer or mobile touch requirement. Canvas keeps grid rendering direct; HTML makes settings and status accessible. A full UI framework adds no necessary capability for this scope.
 - Board and baseline: 10 columns by 20 visible rows, seven tetrominoes, random independent selection, collision-checked rotation without kicks, soft drop, fixed gravity, immediate locking on failed downward movement, game over on blocked spawn, restart and pause. Precise controls/scoring remain downstream contract details.
 - Ghost midline: show dynamically only when every occupied cell in the projected piece lies in rows 10–19 (zero-based); straddling projections remain hidden. Evaluate cells, not the bounding-box anchor.
 - Delayed lock: start at first contact with a valid grounded position; lateral moves and rotation while grounded do not reset elapsed time. Leaving ground cancels it; new contact starts a fresh interval. Pause and hidden-page suspension freeze gameplay time. Hard drop follows this rule unless immediate locking is selected.
-- Penetrator: activation is one-way for the current piece and spends a bonus immediately. It changes neither existing cells nor score. Hold stores tetromino type only; a swapped-in piece is normal, and a spent bonus is not refunded. Hold is limited to once per spawned piece. Restart clears bonuses and hold.
+- Penetrator: activation is one-way for the current piece and spends a bonus immediately. It changes neither existing cells nor score. Hold is disabled for an activated penetrator until it locks; a hold attempt changes no state. Hold stores tetromino type only; a swapped-in piece is normal. Hold is limited to once per spawned piece. Restart clears bonuses and hold.
 - Penetrator legality: pass through occupied cells only within board boundaries; scan all reachable vertical rows for the deepest fully non-overlapping position. Hard drop and ghost share this result. Prevent movement/rotation that leaves no reachable valid locking position; overlap never causes an invalid lock or a frozen lock-ready state. Collision with board edges remains enforced. Award bonuses after a simultaneous four-line clear, capped at three.
 - Settings take effect immediately. Disabling hold preserves its stored type but prevents swaps. Disabling hard drop ignores its hotkey; preview/ghost controls affect display only. Switching to interval locking starts a fresh timer if grounded; switching to failed-down locking cancels that timer and waits for the next failed down attempt. Changing hard-drop policy is prospective, without retroactively locking a previous drop. Restart preserves settings.
 - Defaults: dynamic ghost, hard drop enabled, preview enabled, hard drop follows general policy, full-interval general locking, hold enabled. Dynamic behavior is the default when its capability is adopted; earlier ghost scope uses always-visible behavior.
@@ -109,3 +109,6 @@ DOCS-001 publication confirmed: 8e82c5325240056a77c91b6a94be4809e80a8d75 pushed 
 DOCS-002 proposal: PROJECT and README prepared for initial human approval. The brief covers the classic baseline only, with fixed gravity, independent random selection, collision-checked rotation and failed-down locking. Pause is a proposed usability detail. TypeScript/Canvas/HTML and the two-browser test targets are proposed constraints. No downstream document has been authored. The first PROJECT approval is requested together with the exploration decisions above; DOCS-002 remains unchecked and issue 11 remains open.
 
 Proposal QC: reviewed against the supplied baseline and root instructions; purpose, users, principal scope, constraints and non-goals are coherent. Confirmed no preparation-mode/pass/reset narrative or later enhancement requirements appear in PROJECT. Checked relative links, Markdown heading/list spacing and git diff --check. No browser execution is needed for this document-only proposal. Refined the initial baseline proposal to fixed gravity to keep its scope minimal; level progression is not required.
+
+
+Pass 1 DOCS-002 acceptance: the human stated "Hold is disabled for an activated penetrator, the rest is ok". Accepted PROJECT blob from proposal commit 4495ab8c5d7ad3f53130325e881d7c48d25664b3 without changing PROJECT bytes. The correction governs penetrator scope when adopted. Brief QC remains passing; DOCS-002 checked with the accepted document state. Continue DOCS-003 under autodoc/autoloop through final pass DOCS-008; no implementation, DOCS-009 or integration is authorized.
